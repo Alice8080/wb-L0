@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../assets/fonts/SegoeUILight.woff2') format("woff2");
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../assets/fonts/SegoeUIRegular.woff2') format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../assets/fonts/SegoeUISemiBold.woff2') format("woff2");
+    font-weight: 600;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../assets/fonts/SegoeUIBold.woff2') format("woff2");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+:root {
+    /* --font: 'Segoe UI', sans-serif; */
+    --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --violet: #6725A8;
+    --orange: #F55123;
+    --white: #FFFFFF;
+    --black: #000000;
+    --system-gray: #9797AF;
+    --system-magenta: #CB11AB;
+    --background-smoky: #F6F6FA;
+    --system-green: #0CB477;
+    --input-outline: #00000033;
+    --border-radius-xl: 24px;
+    --rulers-rulers: rgba(0, 0, 0, 0.10);
+    --rulers-rulers-input: rgba(0, 0, 0, 0.20);
+    --red: #FF3B30;
+}
+
+
+* {
+    font-family: var(--font);
+}
