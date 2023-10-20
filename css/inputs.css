@@ -38,3 +38,55 @@ input[type=checkbox]:checked+label::before {
     background-size: 65%;
     background-repeat: no-repeat;
 }
+
+.input-field {
+    position: relative;
+    display: inline-flex;
+    border-bottom: 1px solid var(--rulers-rulers-input);
+}
+
+.input-text+label {
+    position: absolute;
+    pointer-events: none;
+    left: 0px;
+    bottom: 3px;
+    transition: 0.2s ease all;
+    color: var(--system-gray);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+label.active-label {
+    bottom: 29px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 123.077%;
+}
+
+.input-text {
+    padding-bottom: 3px;
+}
+
+.input-help-text {
+    color: var(--text-black, #000);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 116.667%;
+    margin-top: 4px;
+    height: 14px;
+    width: 100%;
+}
+
+.input-empty-error .input-help-text {
+    color: var(--orange);
+}
+
+
+.input-error .input-help-text,
+.input-error .input-text {
+    color: var(--orange);
+}

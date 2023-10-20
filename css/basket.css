@@ -1,5 +1,5 @@
 .basket {
-    padding: 16px 0 0 0;
+    padding: 16px 0 50px 0;
     width: 100%;
 }
 
@@ -49,6 +49,35 @@
 .goods__list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
     width: 100%;
+    margin-bottom: 36px;
+    /* margin-top: 1px; */
+}
+
+
+.goods h2 {
+    width: 100%;
+    border-bottom: 1px solid var(--rulers-rulers);
+    color: var(--text-black);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; 
+    padding-bottom: 18px;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+}
+
+.goods__missing {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;   
+}
+
+.goods__missing li:last-child {
+    margin-top: 2px;
 }

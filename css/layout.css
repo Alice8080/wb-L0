@@ -82,6 +82,12 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 320px) {
     .wrapper {
         width: calc(100% - 32px);

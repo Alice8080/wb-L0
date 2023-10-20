@@ -87,33 +87,31 @@
     line-height: 16px;
 }
 
-.order__delivery-date {
-    display: flex;
-    flex-direction: column;
-    margin-top: 4px;
+.order__delivery-date  {
+    margin-top: 3px;
 }
 
 .order__delivery-date span {
-    color: var(--system-magenta);
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
-}
-
-.order__delivery-date img {
-    object-fit: contain;
-    width: 47px;
+    border-bottom: 1px dashed rgba(203, 17, 171, 0.20);
+    color: var(--system-magenta);
 }
 
 .order__delivery-block {
-    margin-top: 12px;
+    margin-top: 13px;
     display: flex;
     padding: 8px 8px 10px 8px;
     align-items: center;
     border-radius: 8px;
     background: var(--background-smoky);
     width: 255px;
+}
+
+.order__delivery-block p span {
+    border-bottom: 1px dashed rgba(12, 180, 119, 0.20);
 }
 
 .order__delivery-check {
@@ -145,7 +143,7 @@
     margin-right: 8px;
 }
 
-.order__card-number {
+.order__card p {
     color: var(--text-black);
     font-size: 13px;
     font-style: normal;

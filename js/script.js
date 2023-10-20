@@ -1,79 +1,50 @@
-const product = document.createElement('div');
-const products = [
-    {
-        id: 'product-1',
-        isChecked: true,
-        title: 'Футболка UZcotton мужская',
-        img: 'UZcotton.png',
-        details: [
-            'Цвет: белый',
-            'Размер: 56',
-        ],
-        stock: 'Коледино WB',
-        seller: 'OOO Вайлдберриз',
-        sellerInfo: {
-            'OGRN': '5167746237148',
-            'address': '129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
-        },
-        count: 1,
-        rest: 2,
-        price: 522,
-        totalPrice: 522,
-        oldTotalPrice: 1051
-    },
-    {
-        id: 'product-2',
-        isChecked: true,
-        title: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
-        img: 'MobiSafe.png',
-        details: [
-            'Цвет: прозрачный',
-        ],
-        stock: 'Коледино WB',
-        seller: 'OOO Мегапрофстиль',
-        sellerInfo: {
-            'OGRN': '5167746237148',
-            'address': '129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
-        },
-        count: 200,
-        rest: undefined,
-        price: 10500.235,
-        totalPrice: 2100047,
-        oldTotalPrice: 2300047
-    },
-    {
-        id: 'product-3',
-        isChecked: true,
-        title: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell',
-        img: 'FaberCastell.png',
-        details: [],
-        stock: 'Коледино WB',
-        seller: 'OOO Вайлдберриз',
-        sellerInfo: {
-            'OGRN': '5167746237148',
-            'address': '129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
-        },
-        count: 2,
-        rest: 2,
-        price: 247,
-        totalPrice: 494,
-        oldTotalPrice: 1051
-    },
-];
+import { PRODUCTS, CARDS, ADDRESSES } from './constants.js';
+import { inputsValidation } from './inputsValidation.js';
 
-function showProducts(products) {
-    const goodsList = document.querySelector('.goods__list');
+
+const details = {
+    address: ADDRESSES.deliveryPoint,
+    card: CARDS.mir
+};
+
+const addressElements = document.querySelectorAll('.address');
+addressElements.forEach(element => {
+    element.textContent = details.address;
+});
+
+const cardElements = document.querySelectorAll('.card');
+cardElements.forEach(element => {
+    const img = document.createElement('img');
+    img.src = `./assets/images/${details.card.img}`;
+    element.insertAdjacentElement("afterbegin", img);
+});
+
+setProducts(PRODUCTS);
+update();
+manageProducts();
+inputsValidation();
+
+function showProducts(list) {
+    const products = getProducts();
+    const goodsList = document.querySelector(`.goods__${list}`);
+    goodsList.innerHTML = '';
     products.forEach((product) => {
+        const priceStyle = product.totalPrice >= 1000000 ? 'font-size: 16px; line-height: 24px; letter-spacing: normal;' : '';
+        const img = list === 'missing' ? product.missingImg : product.img;
         const node = document.createElement('li');
+        const totalPrice = Math.round(product.totalPrice).toLocaleString('ru');
+        const oldTotalPrice = product.oldTotalPrice > 1000000 ? Math.round(product.oldTotalPrice).toLocaleString('ru') : Math.round(product.oldTotalPrice);
         node.classList.add('goods__product', 'product');
-        node.id = product.id;
+        node.id = `${product.id}-${list}`;
         node.innerHTML = `
-            <div class="product__left">
-            <div class="product__check">
-                <input type="checkbox" name=${product.id} id=${product.id} checked><label
-                    for=${product.id}></label>
+        <div class="product__left">
+            <div class="product__check-img">
+                <div class="product__check">
+                    <input type="checkbox" name=${product.id} id=${product.id} checked><label
+                        for=${product.id}></label>
+                </div>
+                <img class="product__img" src="./assets/images/${img}">
             </div>
-            <img class="product__img" src="./assets/images/${product.img}" alt="${product.title}">
             <div class="product__info">
                 <h4>${product.title}</h4>
                 <div class="product__details"></div>
@@ -91,8 +62,8 @@ function showProducts(products) {
             <div class="product__count">
                 <div class="product__counter">
                     <button class="product__counter-minus" ${product.count < 2 ? 'disabled' : ''}>&#8722;</button>
-                    <span>${product.count}</span>
-                    <button class="product__counter-plus">+</button>
+                    <span class="product__counter-item">${product.count}</span>
+                    <button class="product__counter-plus" ${product.count === product.rest ? 'disabled' : ''}>+</button>
                 </div>
                     ${product.rest ? `<span class="product__rest">Осталось ${product.rest} шт.</span>` : ''}
                 <div class="product__buttons">
@@ -110,13 +81,13 @@ function showProducts(products) {
                     </button>
                 </div>
             </div>
-            <div class="product__price">
-                <p class="product__current-price"><span>${product.totalPrice} </span>сом</p>
-                <p class="product__old-price">${product.oldTotalPrice} сом</p>
+            <div class="product__price" style="${product.totalPrice >= 1000000 ? 'padding-top: 10px;' : ''}">
+                <p class="product__current-price"><span style="${priceStyle}">${totalPrice} </span>сом</p>
+                <p class="product__old-price">${oldTotalPrice} сом</p>
             </div>
         </div>`;
         goodsList.appendChild(node);
-        const details = document.querySelector(`#${product.id} .product__details`);
+        const details = document.querySelector(`#${node.id} .product__details`);
         details.classList.add('product__details');
         product.details.forEach(item => {
             const span = document.createElement('span');
@@ -124,6 +95,179 @@ function showProducts(products) {
             details.appendChild(span);
         });
     });
+    manageProducts();
+};
+
+function setProducts(products) {
+    const storage = localStorage.getItem('products');
+    if (!storage) {
+        localStorage.setItem('products', JSON.stringify(products));
+    }
+};
+
+// function updateProducts(id, storageProduct) {
+//     const storage = localStorage.getItem('products');
+//     if (storage) {
+//         localStorage.setItem('products', JSON.stringify({ ...storage, [id]: storageProduct }));
+//     };
+// }
+
+function manageProducts() {
+    const products = getProducts();
+    products.forEach((product) => {
+        const id = product.id;
+        const storage = JSON.parse(localStorage.getItem('products'));
+        const storageProduct = storage[id];
+        const productElement = document.getElementById(`${id}-list`);
+        const minusBtn = productElement.querySelector('.product__counter-minus');
+        const plusBtn = productElement.querySelector('.product__counter-plus');
+        const count = productElement.querySelector('.product__counter-item');
+        let currentCount = parseInt(count.textContent);
+        minusBtn.addEventListener('click', (e) => {
+            currentCount--;
+            render();
+        });
+        plusBtn.addEventListener('click', (e) => {
+            currentCount++;
+            render();
+        });
+
+        function render() {
+            storageProduct.count = currentCount;
+            storageProduct.totalPrice = currentCount * storageProduct.price;
+            storageProduct.oldTotalPrice = currentCount * storageProduct.oldPrice;
+            // updateProducts(id, storageProduct);
+            update();
+        };
+    });
+};
+
+function renderOrder() {
+    const products = getProducts();
+    const price = document.querySelector('.order__price');
+    const discount = document.querySelector('.order__discount');
+    const productsCount = document.querySelector('.order__products-count');
+    const oldPrice = document.querySelector('.order__old-price');
+    let discountItem = 0;
+    let productsCountItem = 0;
+    let oldPriceItem = 0;
+    products.forEach(product => {
+        const discount = product.oldTotalPrice - product.totalPrice;
+        discountItem += discount;
+        productsCountItem += product.count;
+        oldPriceItem += product.oldTotalPrice;
+    });
+    let priceItem = Math.round(oldPriceItem) - Math.round(discountItem);
+    price.innerHTML = `${Math.round(priceItem).toLocaleString('ru')} <span class="order__som">сом</span>`;
+    // &#8722;200&#8239;985 сом
+    discount.innerHTML = `${Math.round(discountItem).toLocaleString('ru')} <span class="order__som">сом</span>`;
+    productsCount.innerHTML = `${productsCountItem} товара`;
+    oldPrice.innerHTML = `${Math.round(oldPriceItem).toLocaleString('ru')} сом`;
 }
 
-showProducts(products);
+function renderDelivery() {
+    const products = getProducts();
+    const dates = {
+        '5-6': {
+            'product-1': {
+                maxCount: 2,
+            },
+            'product-2': {
+                maxCount: 184,
+            },
+            'product-3': {
+                maxCount: 2,
+            },
+        },
+    };
+    const firstList = document.querySelector('.delivery__5-6').querySelector('.delivery__products');
+    const secondList = document.querySelector('.delivery__7-8').querySelector('.delivery__products');
+    products.forEach(product => {
+        const id = `${product.id}-delivery`;
+        const id2 = `${product.id}-delivery-2`;
+        let node;
+        let secondNode;
+
+        if (!document.getElementById(id)) {
+            node = document.createElement('div');
+            node.classList.add('delivery__product');
+            node.id = id;
+        } else {
+            node = document.getElementById(id);
+        }
+
+        if (!document.getElementById(id2)) {
+            secondNode = document.createElement('div');
+            secondNode.classList.add('delivery__product');
+            secondNode.id = id2;
+        } else {
+            secondNode = document.getElementById(id2);
+        }
+
+        const max = dates['5-6'][product.id].maxCount;
+        node.innerHTML = `
+        <img src="/assets/images/${product.smallImg}">
+        <p>${product.count > 1 ? `<span>${product.count}</span>` : ''}</p>`;
+        if (product.count <= max) {
+            firstList.appendChild(node);
+            if (secondNode.parentElement) {
+                secondNode.parentElement.removeChild(secondNode);
+            }
+        } else {
+            node.innerHTML = `
+            <img src="/assets/images/${product.smallImg}">
+            <p>${product.count > 1 ? `<span>${max}</span>` : ''}</p>`;
+            firstList.appendChild(node);
+
+            secondNode.innerHTML = `
+            <img src="/assets/images/${product.smallImg}">
+            <p>${product.count > 1 ? `<span>${product.count - max}</span>` : ''}</p>`;
+            secondList.appendChild(secondNode);
+        }
+    })
+}
+
+function selectProducts() {
+    let checkedCount = 0;
+    const mainChekbox = document.getElementById('select-all');
+    const checkboxes = document.querySelectorAll('.goods__list .product__check input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) checkedCount++;
+    });
+    mainChekbox.addEventListener('change', (e) => {
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = mainChekbox.checked;
+        });
+        checkedCount = mainChekbox.checked ? checkboxes.length : 0;
+    });
+    checkboxes.forEach(checkbox => {
+        const id = checkbox.id;
+        const products = getProducts();
+        checkbox.addEventListener('change', (e) => {
+            const n = checkbox.checked ? 1 : -1;
+            checkedCount += n;
+            if (checkedCount === checkboxes.length) {
+                mainChekbox.checked = true;
+            }
+            if (checkedCount === 0) {
+                mainChekbox.checked = false;
+            }
+            // const storageProduct = products[id];
+            // storageProduct.isChecked = checkbox.checked;
+            // setProducts(products, id, storageProduct);
+            // update();
+        });
+    });
+}
+selectProducts();
+
+function getProducts() {
+    return Object.values(JSON.parse(localStorage.getItem('products')));
+}
+
+function update() {
+    showProducts('list');
+    showProducts('missing');
+    renderOrder();
+    renderDelivery();
+}
