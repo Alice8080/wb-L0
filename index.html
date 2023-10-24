@@ -16,13 +16,12 @@
             <div class="row">
                 <nav class="nav col-3">
                     <div class="nav__left">
-                        <button class="nav__burger">
-                            <img src="./assets/images/menu-btn.svg" alt="Меню">
-                        </button>
-                        <a class="nav__logo" href="/">ТОВАРЫ <br>И&nbsp;ТОЧКА</a>
+                        <button class="nav__burger"></button>
+                        <a class="nav__logo" href="/"><span>ТОВАРЫ</span> И&nbsp;ТОЧКА</a>
                     </div>
                     <div class="header__search">
-                        <input type="search" name="search" id="search" class="header__input" placeholder="Я ищу...">
+                        <input type="search" name="search" id="search" class="header__input" placeholder="Я ищу..."
+                            autocomplete="off">
                         <button class="header__search-button">
                             <img src="./assets/images/icon-search.svg" alt="Поиск">
                         </button>
@@ -34,12 +33,13 @@
                         </a>
                         <a href="/" class="nav__basket">
                             <div class="nav__basket-items">
-                                <span>3</span>
+                                <span id="nav-basket-count"></span>
                             </div>
                             <img src="./assets/images/basket.svg" alt="Корзина">
                             <span>&nbsp;&nbsp;Корзина</span>
                         </a>
                     </div>
+                    <img src="/assets/images/search-sm.svg" class="header__search-sm">
                 </nav>
             </div>
         </header>
@@ -49,29 +49,39 @@
                     <div class="col-2 main__basket basket">
                         <h1>Корзина</h1>
                         <div class="basket__goods goods">
-                            <div class="goods__select-all">
-                                <div>
-                                    <input type="checkbox" name="select-all" id="select-all" checked>
-                                    <label for="select-all"><span>Выбрать все</span></label>
-                                </div>
-                                <img src="./assets/images/icon-hide.svg" alt="Скрыть список">
-                            </div>
-                            <ul class="goods__list"></ul>
-                            <h2>
-                                Отсутствуют · 3 товара
-                                <img src="./assets/images/icon-hide.svg" alt="Скрыть список">
-                            </h2>
-                            <ul class="goods__missing"></ul>
+                            <details class="basket__details basket__details_list_main" open>
+                                <summary class="basket__summary">
+                                    <div class="goods__select-all">
+                                        <div>
+                                            <input type="checkbox" name="select-all" id="select-all">
+                                            <label for="select-all"><span>Выбрать все</span></label>
+                                        </div>
+                                        <img class="basket__summary-img" src="./assets/images/icon-hide.svg"
+                                            alt="Скрыть список">
+                                    </div>
+                                </summary>
+                                <ul class="goods__list"></ul>
+                            </details>
+                            <details class="basket__details basket__details_list_missing" open>
+                                <summary class="basket__summary">
+                                    <h2>
+                                        Отсутствуют · 3 товара
+                                        <img class="basket__summary-img" src="./assets/images/icon-hide.svg"
+                                            alt="Скрыть список">
+                                    </h2>
+                                </summary>
+                                <ul class="goods__missing"></ul>
+                            </details>
                         </div>
                         <div class="basket__details details">
                             <section class="details__block details__delivery delivery">
                                 <div class="details__header">
                                     <h5>Способ доставки</h5>
-                                    <button>Изменить</button>
+                                    <button class="modal__button modal__button_type_delivery">Изменить</button>
                                 </div>
                                 <ul>
                                     <li>
-                                        <span class="delivery__title">Пункт выдачи</span>
+                                        <span class="delivery__title" id="delivery-type-title"></span>
                                         <div class="delivery__info">
                                             <div class="address"></div>
                                             <p>
@@ -98,17 +108,25 @@
                                 </ul>
                                 <div class="delivery__free">
                                     <img src="/assets/images/price-shipping.svg">
-                                    <p>Обратная доставка товаров на&#160;склад при отказе&#160;— <span>бесплатно</span>
+                                    <p>Обратная доставка товаров на&#160;склад при отказе&#160;—
+                                        <span class="hover-free">
+                                            бесплатно
+                                            <span class="hover-free-block">
+                                                Если товары вам не подойдут, мы вернем их&#160;обратно на склад — это
+                                                бесплатно
+                                            </span>
+                                        </span>
                                     </p>
                                 </div>
                             </section>
                             <section class="details__block payment">
                                 <div class="details__header">
                                     <h5>Способ оплаты</h5>
-                                    <button>Изменить</button>
+                                    <button class="modal__button modal__button_type_payment">Изменить</button>
                                 </div>
                                 <div class="details__card">
-                                    <div class="card">
+                                    <div class="card" id="payment-card">
+                                        <img src="/assets/images/card-mir.svg">
                                         <p>1234 56•• •••• 1234</p>
                                         <span>01/30</span>
                                     </div>
@@ -147,14 +165,16 @@
                                         </div>
                                         <div class="details__user-input">
                                             <div class="input-field">
-                                                <input type="tel" name="phone" id="phone" maxlength="30" class="input-text">
+                                                <input type="tel" name="phone" id="phone" maxlength="30"
+                                                    class="input-text">
                                                 <label for="phone">Телефон</label>
                                             </div>
                                             <span class="input-help-text"></span>
                                         </div>
                                         <div class="details__user-input">
                                             <div class="input-field">
-                                                <input type="text" name="inn" id="inn" maxlength="14" class="input-text">
+                                                <input type="text" name="inn" id="inn" maxlength="14"
+                                                    class="input-text">
                                                 <label for="inn">ИНН</label>
                                             </div>
                                             <span class="input-help-text">Для таможенного оформления</span>
@@ -191,8 +211,8 @@
                         </div>
                         <div class="order__delivery">
                             <h3>
-                                <span>Доставка в пункт выдачи</span>
-                                <button class="order__delivery-change">
+                                <span id="order-delivery-type"></span>
+                                <button class="order__delivery-change modal__button modal__button_type_delivery">
                                     <img src="./assets/images/icon-change.svg" alt="Изменить пункт выдачи">
                                 </button>
                             </h3>
@@ -203,14 +223,25 @@
                             <div class="order__delivery-block">
                                 <img class="order__delivery-check" src="./assets/images/price-shipping.svg"
                                     alt="Доставка">
-                                <p>Обратная доставка товаров <br> на склад при отказе — <span>бесплатно</span></p>
+                                <p><span class="order__delivery-span">Обратная доставка товаров</span> на склад при отказе —
+                                    <span class="hover-free-order">
+                                        бесплатно
+                                        <span class="hover-free-order-block">
+                                            Если товары вам не подойдут, мы вернем их&#160;обратно на склад — это
+                                            бесплатно
+                                        </span>
+                                    </span>
+                                </p>
                             </div>
                         </div>
                         <h3>
                             <span>Оплата картой</span>
-                            <img src="./assets/images/icon-change.svg" alt="Изменить способ оплаты">
+                            <button class="order__delivery-change modal__button modal__button_type_payment">
+                                <img src="./assets/images/icon-change.svg" alt="Изменить способ оплаты">
+                            </button>
                         </h3>
-                        <div class="order__card card">
+                        <div class="order__card card" id="order-card">
+                            <img src="/assets/images/card-mir.svg">
                             <p>1234 12•• •••• 1234</p>
                         </div>
                         <div class="order__write-off">
@@ -220,10 +251,10 @@
                                     Списать оплату сразу
                                 </label>
                             </div>
-                            <p>Спишем оплату с карты при получении</p>
+                            <p class="order__write-off-text">Спишем оплату с карты при получении</p>
                         </div>
                         <button class="order__button" id="order-btn">
-                            <span>Заказать</span>
+                            <span></span>
                         </button>
                         <div class="order__rules">
                             <img src="./assets/images/incon-rules.svg" alt="Согласие">
@@ -240,6 +271,8 @@
             </div>
         </footer>
     </div>
+    <div id="delivery-modal" class="modal"></div>
+    <div id="payment-modal" class="modal"></div>
 </body>
 
 </html>

@@ -37,6 +37,7 @@
     --orange: #F55123;
     --white: #FFFFFF;
     --black: #000000;
+    --text-black: #000000;
     --system-gray: #9797AF;
     --system-magenta: #CB11AB;
     --background-smoky: #F6F6FA;
@@ -46,6 +47,7 @@
     --rulers-rulers: rgba(0, 0, 0, 0.10);
     --rulers-rulers-input: rgba(0, 0, 0, 0.20);
     --red: #FF3B30;
+    --light-system-gray: #A0A0A4;
 }
 
 

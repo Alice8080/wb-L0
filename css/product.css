@@ -14,7 +14,7 @@
 
 .product__check input+label::before {
     margin-right: 0;
-    margin-top: -2px;
+    /* margin-top: -2px; */
 }
 
 .product__check {
@@ -115,7 +115,7 @@
 }
 
 .product__counter span {
-    width: 44px;
+    width: 42px;
     /* height: 23px; */
     display: block;
     color: var(--text-black);
@@ -124,7 +124,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    padding: 8px 0 13px 0;
+    padding: 8px 0 13px 2px;
 }
 
 .product__counter button {
@@ -141,7 +141,7 @@
 }
 
 .product__counter-plus {
-    padding: 12px 7px 16px 10px;
+    padding: 12px 8px 16px 10px;
 }
 
 .product__counter-minus {
@@ -222,7 +222,15 @@
     gap: 16px;
     justify-content: flex-end;
 }
+/* transition: opacity .5s ease 0s; */
+/* .product:hover .product__del,
+.product:hover .product__del {
+    
+}
+.product:hover .product__del,
+.product:hover .product__del {
 
+} */
 .product__del:hover svg path {
     fill: var(--orange);
 }
@@ -239,6 +247,20 @@
     display: none;
 }
 
-.goods__missing .product .product__info {
+.goods__missing .product .product__info h4,
+.goods__missing .product .product__info span {
     color: var(--system-gray);
+}
+
+.goods__missing .product .product__info h4 {
+    margin-top: 1px;
+}
+
+.product .product__buttons button {
+    opacity: 0;
+    transition: all .2s ease 0s; 
+}
+
+.product:hover .product__buttons button {
+    opacity: 1;
 }

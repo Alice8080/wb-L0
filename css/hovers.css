@@ -1,0 +1,160 @@
+.hover-free {
+    position: relative;
+    cursor: pointer;
+    margin-left: 1px;
+}
+
+.hover-free-block {
+    position: absolute;
+    top: 22px;
+    left: -116px;
+    width: 288px;
+    padding: 10px 16px 14px 16px;
+    border-radius: 8px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    color: var(--text-black);
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 123.077%;
+    display: none;
+}
+
+.hover-free:hover .hover-free-block {
+    display: flex;
+}
+
+
+.hover-free-order {
+    position: relative;
+    cursor: pointer;
+}
+
+.hover-free-order-block {
+    position: absolute;
+    top: 22px;
+    right: -33px;
+    display: flex;
+    width: 288px;
+    padding: 10px 16px 14px 16px;
+    border-radius: 8px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    color: var(--text-black);
+    display: none;
+}
+
+.hover-free-order:hover .hover-free-order-block {
+    display: flex;
+}
+
+
+.product__delivery:has(.hover-info) {
+    position: relative;
+}
+
+.hover-info {
+    cursor: pointer;
+    display: inline;
+}
+
+.hover-info-block {
+    position: absolute;
+    top: 42px;
+    left: 3px;
+    display: flex;
+    width: 280px;
+    height: 104px;
+    padding: 11px 16px 13px 16px;
+    border-radius: 8px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    display: none;
+}
+
+.hover-info-block span {
+    color: var(--text-black);
+}
+
+.hover-title {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700 !important;
+    line-height: 123.077%;
+}
+
+.hover-info:hover .hover-info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.product__price {
+    position: relative;
+}
+
+.hover-price {
+    cursor: pointer;
+    display: inline;
+}
+
+.hover-price-block {
+    position: absolute;
+    top: 21px;
+    right: -9px;
+    display: flex;
+    width: 239px;
+    height: 64px;
+    background-color: var(--white);
+    padding: 11px 16px 13px 16px;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    display: none;
+}
+
+.hover-price-block span {
+    color: var(--text-black);
+}
+
+.hover-price:hover .hover-price-block {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.hover-price-title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.hover-price-discount {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.hover-price-title span {
+    color: var(--light-system-gray);
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 123.077%;
+}
+
+.hover-price-discount span {
+    color: var(--text-black);
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 123.077%;
+}

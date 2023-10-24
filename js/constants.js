@@ -1,6 +1,7 @@
 export const PRODUCTS = {
     'product-1': {
         id: 'product-1',
+        isFav: false,
         isChecked: true,
         title: 'Футболка UZcotton мужская',
         img: 'UZcotton.png',
@@ -13,8 +14,9 @@ export const PRODUCTS = {
         stock: 'Коледино WB',
         seller: 'OOO Вайлдберриз',
         sellerInfo: {
-            'OGRN': '5167746237148',
-            'address': '129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
+            'title': 'OOO «ВАЙЛДБЕРРИЗ»',
+            'OGRN': '1067746062449',
+            'address': '142181, Московская Область, Подольск, Коледино, д. 6 стр. 1'
         },
         count: 1,
         rest: 2,
@@ -25,6 +27,7 @@ export const PRODUCTS = {
     },
     'product-2': {
         id: 'product-2',
+        isFav: false,
         isChecked: true,
         title: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
         img: 'MobiSafe.png',
@@ -36,10 +39,11 @@ export const PRODUCTS = {
         stock: 'Коледино WB',
         seller: 'OOO Мегапрофстиль',
         sellerInfo: {
+            'title': 'OOO «МЕГАПРОФСТИЛЬ»',
             'OGRN': '5167746237148',
             'address': '129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
         },
-        count: 185,
+        count: 200,
         rest: undefined,
         price: 10500.235,
         oldPrice: 57501.175,
@@ -48,6 +52,7 @@ export const PRODUCTS = {
     },
     'product-3': {
         id: 'product-3',
+        isFav: false,
         isChecked: true,
         title: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, <nobr>Faber-Castell</nobr>',
         img: 'FaberCastell.png',
@@ -57,8 +62,86 @@ export const PRODUCTS = {
         stock: 'Коледино WB',
         seller: 'OOO Вайлдберриз',
         sellerInfo: {
+            'title': 'OOO «ВАЙЛДБЕРРИЗ»',
+            'OGRN': '1067746062449',
+            'address': '142181, Московская Область, Подольск, Коледино, д. 6 стр. 1'
+        },
+        count: 2,
+        rest: 2,
+        price: 247,
+        oldPrice: 475,
+        totalPrice: 494,
+        oldTotalPrice: 950
+    },
+};
+
+export const MISSING_PRODUCTS = {
+    'product-1': {
+        id: 'product-1',
+        isFav: false,
+        isChecked: true,
+        title: 'Футболка UZcotton мужская',
+        img: 'UZcotton.png',
+        missingImg: 'UZcottonMissing.png',
+        smallImg: 'UZcottonSmall.png',
+        details: [
+            'Цвет: белый',
+            'Размер: 56',
+        ],
+        stock: 'Коледино WB',
+        seller: 'OOO Вайлдберриз',
+        sellerInfo: {
+            'title': 'OOO «ВАЙЛДБЕРРИЗ»',
+            'OGRN': '1067746062449',
+            'address': '142181, Московская Область, Подольск, Коледино, д. 6 стр. 1'
+        },
+        count: 1,
+        rest: 2,
+        price: 522,
+        oldPrice: 1051,
+        totalPrice: 522,
+        oldTotalPrice: 1051,
+    },
+    'product-2': {
+        id: 'product-2',
+        isFav: false,
+        isChecked: true,
+        title: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
+        img: 'MobiSafe.png',
+        missingImg: 'MobiSafeMissing.png',
+        smallImg: 'MobiSafeSmall.png',
+        details: [
+            'Цвет: прозрачный',
+        ],
+        stock: 'Коледино WB',
+        seller: 'OOO Мегапрофстиль',
+        sellerInfo: {
+            'title': 'OOO «МЕГАПРОФСТИЛЬ»',
             'OGRN': '5167746237148',
             'address': '129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
+        },
+        count: 200,
+        rest: undefined,
+        price: 10500.235,
+        oldPrice: 57501.175,
+        totalPrice: 2100047,
+        oldTotalPrice: 2300047
+    },
+    'product-3': {
+        id: 'product-3',
+        isFav: false,
+        isChecked: true,
+        title: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, <nobr>Faber-Castell</nobr>',
+        img: 'FaberCastell.png',
+        missingImg: 'FaberCastellMissing.png',
+        smallImg: 'FaberCastellSmall.png',
+        details: [],
+        stock: 'Коледино WB',
+        seller: 'OOO Вайлдберриз',
+        sellerInfo: {
+            'title': 'OOO «ВАЙЛДБЕРРИЗ»',
+            'OGRN': '1067746062449',
+            'address': '142181, Московская Область, Подольск, Коледино, д. 6 стр. 1'
         },
         count: 2,
         rest: 2,
@@ -72,7 +155,7 @@ export const PRODUCTS = {
 export const CARDS = {
     mir: {
         img: 'card-mir.svg',
-        number: '1234 12•• •••• 1234'
+        number: '1234 56•• •••• 1234'
     },
     visa: {
         img: 'card-visa.svg',
@@ -90,11 +173,9 @@ export const CARDS = {
 
 export const ADDRESSES = {
     'deliveryPoint': 'Бишкек, улица Ахматбека Суюмбаева, 12/1',
-    'courier': {
-        '1': 'Бишкек, улица Табышалиева, 57',
-        '2': 'Бишкек, улица Жукеева-Пудовкина, 77/1',
-        '3': 'Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1'
-    }
+    'courier-1': 'Бишкек, улица Табышалиева, 57',
+    'courier-2': 'Бишкек, улица Жукеева-Пудовкина, 77/1',
+    'courier-3': 'Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1'
 };
 
 
@@ -125,7 +206,7 @@ export const INPUTS = {
         emptyErrorText: 'Укажите номер телефона',
         errorText: 'Формат: +9 999 999 99 99',
         isValid(value) {
-            const validPhone = /\+\d \d\d\d \d\d\d \d\d \d\d/.test(value)
+            const validPhone = /^\+\d \d\d\d \d\d\d-\d\d-\d\d$/.test(value)
             return validPhone;
         },
     },

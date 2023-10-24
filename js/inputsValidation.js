@@ -74,7 +74,7 @@ function validateTel() {
     input.addEventListener("input", (e) => {
         const value = input.value.replace(/\D+/g, "");
         if (value.length > 0) {
-            const numberLength = 11;
+            const numberLength = 12;
             let result = "+";
             for (let i = 0; i < value.length && i < numberLength; i++) {
                 switch (i) {
@@ -85,10 +85,10 @@ function validateTel() {
                         result += " ";
                         break;
                     case 7:
-                        result += " ";
+                        result += "-";
                         break;
                     case 9:
-                        result += " ";
+                        result += "-";
                         break;
                     default:
                         break;
