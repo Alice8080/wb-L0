@@ -158,3 +158,20 @@
     font-weight: 400;
     line-height: 123.077%;
 }
+
+@media (max-width: 660px) {
+    .hover-price-block {
+        z-index: 2;
+        position: absolute;
+        top: 21px;
+        right: -20px;
+    }
+
+    .hover-free-block {
+        left: -100px;
+    }
+
+    .hover-free-order-block {
+        left: -10px;
+    }
+}

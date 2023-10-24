@@ -11,10 +11,6 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* .modal__payment {
-    display: block;
-} */
-
 .modal__content {
     z-index: 3001;
     background: #FFFFFF;
@@ -39,8 +35,6 @@
 .modal__close {
     cursor: pointer;
     margin-right: -9px;
-    /* margin: auto 0 0 0;
-    display: block; */
 }
 
 .modal__payment {
@@ -98,14 +92,6 @@
     flex-direction: column;
     justify-content: space-between;
 }
-/* .modal__section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    height: max-content;
-} */
-
 
 .modal__payment img {
     margin-right: 5px;
@@ -125,10 +111,12 @@
     line-height: 123.077%;
     margin-bottom: 12px;
 }
+
 .modal__payment {
     margin: auto;
     margin-top: 179.5px;
 }
+
 .modal__delivery {
     margin: auto;
     margin-top: 177px;
@@ -170,15 +158,81 @@
     margin-right: 2px;
 }
 
+.radio__block-info {
+    display: none;
+}
 
 @media (max-width: 1024px) {
     .modal__payment {
         margin-top: 179.5px;
     }
+
     .modal__delivery {
         margin: auto;
         margin-top: 177px;
         margin-left: 313px;
     }
-    
+
+}
+
+@media (max-width: 1000px) {
+    .modal__delivery {
+        margin: auto;
+        margin-top: 177px;
+    }
+}
+
+@media (max-width: 660px) {
+
+    .modal__payment,
+    .modal__delivery {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        padding: 16px 14px;
+    }
+
+    .modal__button-select {
+        width: 288px;
+    }
+
+    .modal__header {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px;
+        letter-spacing: -0.2px;
+    }
+
+    .radio__block span {
+        width: 236px;
+    }
+
+    .radio__block-info img {
+        object-fit: contain;
+        height: 12px;
+        width: 12px;
+        margin-right: 4px;
+    }
+
+    .radio__block-info {
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+    }
+
+    .radio__block-info p {
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+    }
+    .radio__block-info p:first-of-type {
+        margin-right: 8px;
+    }
+
+    .radio__block-info p:last-of-type {
+        color: var(--light-system-gray);
+    }
 }

@@ -65,7 +65,6 @@
     display: flex;
     flex-direction: column;
     justify-self: end;
-    /* align-items: flex-end; */
 }
 
 .details__user-input .input-field {
@@ -86,21 +85,11 @@
     transition: all .5s ease 0s;
 }
 
-/* .basket__summary::marker {
-    display: none;
-    opacity: 0;
-} */
-/* details[open] > summary:after {
-    content: "";
-} */
-
-
 
 .details__card .card {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 6px;
 }
 
 .details__card .card p {
@@ -108,6 +97,7 @@
 }
 
 .details__card-info {
+    margin-top: 6px;
     color: var(--system-gray);
     font-size: 13px;
     font-style: normal;
@@ -115,16 +105,21 @@
     line-height: 123.077%;
 }
 
+.details__block-user {
+    padding-top: 17px;
+}
 
-@media (max-width: 1400px) {
+
+@media (max-width: 1399px) {
     .details__block {
         width: 638px;
     }
 
-    .details__user-names, 
+    .details__user-names,
     .details__user-info {
         width: 590px;
     }
+
     .details__user-names .details__user-input {
         width: 283px;
     }
@@ -135,19 +130,79 @@
     }
 }
 
-/* 
-@media (max-width: 1400px) {
+@media (max-width: 1000px) {
     .details__block {
-        width: 638px;
+        width: 100%;
     }
+}
+@media (max-width: 660px) {
+
+    .details__user-names,
+    .details__user-info {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .details__block {
+        width: 100%;
+        height: fit-content;
+        padding: 16px 16px 24px 16px;
+    }
+
+    .details__user-names,
+    .details__user-info {
+        width: fit-content;
+        gap: 16px;
+    }
+
     .details__user-names .details__user-input {
-        width: 283px;
+        height: 56px;
+
+        width: 288px;
     }
 
     .details__user-info .details__user-input {
-        height: 64px;
-        width: 180.67px;
+        height: 56px;
+        width: 288px;
     }
-} */
 
-@media (max-width: 320px) {}
+    .details__user {
+        height: fit-content;
+    }
+
+    .details__header h5 {
+        color: var(--text-black);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+        letter-spacing: -0.2px;
+    }
+
+    .details__header button {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+    }
+
+    .details__header {
+        margin-bottom: 9px;
+    }
+
+    .payment .details__header {
+        margin-bottom: 8px;
+    }
+
+    .details {
+        gap: 11px;
+    }
+
+    .details__user-names {
+        margin-bottom: 16px;
+    }
+
+    .details__block-user .details__header {
+        margin-bottom: 10px;
+    }
+}

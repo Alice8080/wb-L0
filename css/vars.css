@@ -31,8 +31,7 @@
 }
 
 :root {
-    /* --font: 'Segoe UI', sans-serif; */
-    --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font: 'Segoe UI', sans-serif;
     --violet: #6725A8;
     --orange: #F55123;
     --white: #FFFFFF;
@@ -48,8 +47,8 @@
     --rulers-rulers-input: rgba(0, 0, 0, 0.20);
     --red: #FF3B30;
     --light-system-gray: #A0A0A4;
+    --system-smoky-dark: #F0ECF4;
 }
-
 
 * {
     font-family: var(--font);

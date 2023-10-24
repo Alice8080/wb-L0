@@ -23,19 +23,19 @@
                         <input type="search" name="search" id="search" class="header__input" placeholder="Я ищу..."
                             autocomplete="off">
                         <button class="header__search-button">
-                            <img src="./assets/images/icon-search.svg" alt="Поиск">
+                            <img src="/assets/images/icon-search.svg" alt="Поиск">
                         </button>
                     </div>
                     <div class="nav__menu-icons">
                         <a href="#">
-                            <img src="./assets/images/user.svg" alt="Профиль">
+                            <img src="/assets/images/user.svg" alt="Профиль">
                             <span>Профиль</span>
                         </a>
                         <a href="/" class="nav__basket">
                             <div class="nav__basket-items">
                                 <span id="nav-basket-count"></span>
                             </div>
-                            <img src="./assets/images/basket.svg" alt="Корзина">
+                            <img src="/assets/images/basket.svg" alt="Корзина">
                             <span>&nbsp;&nbsp;Корзина</span>
                         </a>
                     </div>
@@ -56,7 +56,7 @@
                                             <input type="checkbox" name="select-all" id="select-all">
                                             <label for="select-all"><span>Выбрать все</span></label>
                                         </div>
-                                        <img class="basket__summary-img" src="./assets/images/icon-hide.svg"
+                                        <img class="basket__summary-img" src="/assets/images/icon-hide.svg"
                                             alt="Скрыть список">
                                     </div>
                                 </summary>
@@ -66,7 +66,7 @@
                                 <summary class="basket__summary">
                                     <h2>
                                         Отсутствуют · 3 товара
-                                        <img class="basket__summary-img" src="./assets/images/icon-hide.svg"
+                                        <img class="basket__summary-img" src="/assets/images/icon-hide.svg"
                                             alt="Скрыть список">
                                     </h2>
                                 </summary>
@@ -133,7 +133,7 @@
                                     <span class="details__card-info">Спишем оплату с карты при получении</span>
                                 </div>
                             </section>
-                            <section class="details__block">
+                            <section class="details__block details__block-user">
                                 <div class="details__header">
                                     <h5>Получатель</h5>
                                 </div>
@@ -159,13 +159,13 @@
                                         <div class="details__user-input">
                                             <div class="input-field">
                                                 <input type="text" name="email" id="email" class="input-text">
-                                                <label for="email">Почта</label>
+                                                <label for="email" id="email-label">Почта</label>
                                             </div>
                                             <span class="input-help-text"></span>
                                         </div>
                                         <div class="details__user-input">
                                             <div class="input-field">
-                                                <input type="tel" name="phone" id="phone" maxlength="30"
+                                                <input type="tel" name="phone" id="phone" maxlength="30" 
                                                     class="input-text">
                                                 <label for="phone">Телефон</label>
                                             </div>
@@ -213,7 +213,7 @@
                             <h3>
                                 <span id="order-delivery-type"></span>
                                 <button class="order__delivery-change modal__button modal__button_type_delivery">
-                                    <img src="./assets/images/icon-change.svg" alt="Изменить пункт выдачи">
+                                    <img src="/assets/images/icon-change.svg" alt="Изменить пункт выдачи">
                                 </button>
                             </h3>
                             <p class="address"></p>
@@ -221,7 +221,7 @@
                                 <span>5–8 фев</span>
                             </div>
                             <div class="order__delivery-block">
-                                <img class="order__delivery-check" src="./assets/images/price-shipping.svg"
+                                <img class="order__delivery-check" src="/assets/images/price-shipping.svg"
                                     alt="Доставка">
                                 <p><span class="order__delivery-span">Обратная доставка товаров</span> на склад при отказе —
                                     <span class="hover-free-order">
@@ -237,7 +237,7 @@
                         <h3>
                             <span>Оплата картой</span>
                             <button class="order__delivery-change modal__button modal__button_type_payment">
-                                <img src="./assets/images/icon-change.svg" alt="Изменить способ оплаты">
+                                <img src="/assets/images/icon-change.svg" alt="Изменить способ оплаты">
                             </button>
                         </h3>
                         <div class="order__card card" id="order-card">
@@ -257,7 +257,7 @@
                             <span></span>
                         </button>
                         <div class="order__rules">
-                            <img src="./assets/images/incon-rules.svg" alt="Согласие">
+                            <img src="/assets/images/incon-rules.svg" alt="Согласие">
                             <p>Соглашаюсь с <a href="#">правилами пользования торговой площадкой</a> и <a
                                     href="#">возврата</a></p>
                         </div>
@@ -270,6 +270,26 @@
                 <p>© 2022&nbsp;&nbsp;ООО «Товары и точка»</p>
             </div>
         </footer>
+        <div class="tabbar">
+            <a href="#" class="tabbar__item">
+                <img src="/assets/images/main.svg" alt="Главная страница">
+            </a>
+            <a href="#" class="tabbar__item">
+                <img src="/assets/images/catalog.svg" alt="Каталог">
+            </a>
+            <a href="/" class="tabbar__basket">
+                <div class="tabbar__basket-items">
+                    <span id="tabbar-basket-count"></span>
+                </div>
+                <img src="/assets/images/cart.svg" alt="Корзина">
+            </a>
+            <a href="#" class="tabbar__item">
+                <img src="/assets/images/favorites.svg" alt="Избранное">
+            </a>
+            <a href="#" class="tabbar__item">
+                <img src="/assets/images/profile.svg" alt="Профиль">
+            </a>
+        </div>
     </div>
     <div id="delivery-modal" class="modal"></div>
     <div id="payment-modal" class="modal"></div>

@@ -3,6 +3,7 @@ import { INPUTS } from './constants.js';
 export function inputsValidation() {
     const button = document.getElementById('order-btn');
     validateTel();
+    validateInn();
     for (let item of Object.keys(INPUTS)) {
         const input = document.querySelector(`[name="${item}"]`);
         const label = document.querySelector(`[for="${item}"]`);
@@ -26,6 +27,10 @@ export function inputsValidation() {
             }
         });
     };
+    document.getElementById('email-label').textContent = window.screen.width <= 660 ? 'Электронная почта' : 'Почта';
+    window.onresize = () => {
+        document.getElementById('email-label').textContent = window.screen.width <= 660 ? 'Электронная почта' : 'Почта';
+    }
 };
 
 function showEmptyError(field, elementError, input, errorText) {
@@ -38,8 +43,8 @@ function showEmptyError(field, elementError, input, errorText) {
         }
     }
     if (window.screen.width <= 768) {
-        input.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-    }    
+        input.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
 };
 
 function showError(field, elementError, item, input, errorText, emptyErrorText) {
@@ -59,45 +64,42 @@ function showError(field, elementError, item, input, errorText, emptyErrorText) 
     }
 };
 
-// function mobileError() {
-//     if (window.screen.width < 500) {
-//         window.scrollTo({
-//             top: 100,
-//             left: 0,
-//             behavior: "smooth",
-//         });
-//     }
-// }
+function validateInn() {
+    const input = document.getElementById('inn');
+    input.addEventListener("input", (e) => {
+        const value = input.value.replace(/\D+/g, "");
+        input.value = value;
+    });
+}
 
 function validateTel() {
     const input = document.querySelector('[type="tel"]');
     input.addEventListener("input", (e) => {
         const value = input.value.replace(/\D+/g, "");
-        if (value.length > 0) {
-            const numberLength = 12;
-            let result = "+";
-            for (let i = 0; i < value.length && i < numberLength; i++) {
-                switch (i) {
-                    case 1:
-                        result += " ";
-                        break;
-                    case 4:
-                        result += " ";
-                        break;
-                    case 7:
-                        result += "-";
-                        break;
-                    case 9:
-                        result += "-";
-                        break;
-                    default:
-                        break;
-                }
-                result += value[i];
+        const numberLength = 12;
+        let result = "+";
+        for (let i = 0; i < value.length && i < numberLength; i++) {
+            switch (i) {
+                case 1:
+                    result += " ";
+                    break;
+                case 4:
+                    result += " ";
+                    break;
+                case 7:
+                    result += "-";
+                    break;
+                case 9:
+                    result += "-";
+                    break;
+                default:
+                    break;
             }
-            result = result.replace(/^\+8/, '+7');
-            input.value = result;
-        };
+            result += value[i];
+        }
+        result = result.replace(/^\+8/, '+7');
+
+        input.value = result;
     });
 };
 

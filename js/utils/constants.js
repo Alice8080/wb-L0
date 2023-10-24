@@ -4,7 +4,10 @@ export const PRODUCTS = {
         isFav: false,
         isChecked: true,
         title: 'Футболка UZcotton мужская',
+        mobileTitle: 'Футболка UZcotton мужская',
         img: 'UZcotton.png',
+        mobileImg: 'UZcottonMobile.svg',
+        mobileImgBW: 'UZcottonMobileBW.svg',
         missingImg: 'UZcottonMissing.png',
         smallImg: 'UZcottonSmall.png',
         details: [
@@ -30,7 +33,10 @@ export const PRODUCTS = {
         isFav: false,
         isChecked: true,
         title: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
+        mobileTitle: 'Силиконовый чехол картхолдер (отверстия) для...',
         img: 'MobiSafe.png',
+        mobileImg: 'MobiSafeMobile.svg',
+        mobileImgBW: 'MobiSafeMobileBW.svg',
         missingImg: 'MobiSafeMissing.png',
         smallImg: 'MobiSafeSmall.png',
         details: [
@@ -55,7 +61,10 @@ export const PRODUCTS = {
         isFav: false,
         isChecked: true,
         title: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, <nobr>Faber-Castell</nobr>',
+        mobileTitle: 'Карандаши цветные Faber-Castell "Замок", набор 24 цв...',
         img: 'FaberCastell.png',
+        mobileImg: 'FaberCastellMobile.svg',
+        mobileImgBW: 'FaberCastellMobileBW.svg',
         missingImg: 'FaberCastellMissing.png',
         smallImg: 'FaberCastellSmall.png',
         details: [],
@@ -81,7 +90,10 @@ export const MISSING_PRODUCTS = {
         isFav: false,
         isChecked: true,
         title: 'Футболка UZcotton мужская',
+        mobileTitle: 'Футболка UZcotton мужская',
         img: 'UZcotton.png',
+        mobileImg: 'UZcottonMobile.svg',
+        mobileImgBW: 'UZcottonMobileBW.svg',
         missingImg: 'UZcottonMissing.png',
         smallImg: 'UZcottonSmall.png',
         details: [
@@ -107,7 +119,10 @@ export const MISSING_PRODUCTS = {
         isFav: false,
         isChecked: true,
         title: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
+        mobileTitle: 'Силиконовый чехол картхолдер (отверстия) для...',
         img: 'MobiSafe.png',
+        mobileImg: 'MobiSafeMobile.svg',
+        mobileImgBW: 'MobiSafeMobileBW.svg',
         missingImg: 'MobiSafeMissing.png',
         smallImg: 'MobiSafeSmall.png',
         details: [
@@ -132,7 +147,10 @@ export const MISSING_PRODUCTS = {
         isFav: false,
         isChecked: true,
         title: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, <nobr>Faber-Castell</nobr>',
+        mobileTitle: 'Карандаши цветные Faber-Castell "Замок", набор 24 цв...',
         img: 'FaberCastell.png',
+        mobileImg: 'FaberCastellMobile.svg',
+        mobileImgBW: 'FaberCastellMobileBW.svg',
         missingImg: 'FaberCastellMissing.png',
         smallImg: 'FaberCastellSmall.png',
         details: [],
@@ -173,11 +191,17 @@ export const CARDS = {
 
 export const ADDRESSES = {
     'deliveryPoint': 'Бишкек, улица Ахматбека Суюмбаева, 12/1',
-    'courier-1': 'Бишкек, улица Табышалиева, 57',
-    'courier-2': 'Бишкек, улица Жукеева-Пудовкина, 77/1',
-    'courier-3': 'Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1'
+    'courier1': 'Бишкек, улица Табышалиева, 57',
+    'courier2': 'Бишкек, улица Жукеева-Пудовкина, 77/1',
+    'courier3': 'Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1'
 };
 
+export const DETAILS = {
+    addressType: 'point',
+    address: ADDRESSES.deliveryPoint,
+    card: CARDS.mir,
+    addresses: ADDRESSES
+};
 
 export const INPUTS = {
     name: {
@@ -219,4 +243,3 @@ export const INPUTS = {
         },
     },
 };
-

@@ -67,6 +67,10 @@
     margin-bottom: -4px;
 }
 
+.order h3 button:last-of-type {
+    margin-bottom: -1px;
+}
+
 .order__delivery h3 {
     margin-bottom: 5px;
 }
@@ -87,7 +91,7 @@
     line-height: 16px;
 }
 
-.order__delivery-date  {
+.order__delivery-date {
     margin-top: 3px;
 }
 
@@ -132,10 +136,7 @@
 .order__delivery-block .hover-free-order img {
     object-fit: contain;
 }
-/* 
-.order__delivery-block p {
-    width: 100%;
-} */
+
 .order__card {
     display: flex;
     align-items: center;
@@ -220,9 +221,7 @@
 
 .order__rules a {
     color: var(--text-black);
-    text-decoration: underline;
-    text-decoration-color: rgba(0, 0, 0, 0.10);
-    /* text-decoration-style: dashed; */
+    border-bottom: 1px solid var(--rulers-rulers);
 }
 
 
@@ -240,8 +239,128 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 1000px) {
+    .order__delivery-block {
+        width: 100%;
+    }
+
+    .order__delivery-span {
+        display: block;
+    }
+
+    .order li {
+        width: 100%;
+    }
+
+    .order__delivery-span {
+        display: inline;
+    }
+
+    .order {
+        border-radius: 24px;
+        background: var(--background-smoky);
+        box-shadow: unset;
+        padding: 8px 16px 40px 16px;
+        margin-top: 0px;
+        width: 100%;
+        margin-left: -6px;
+    }
+
+    .order__delivery-block {
+        margin-top: 13px;
+        display: flex;
+        align-items: center;
+        padding: 8px 8px 12px 8px;
+        gap: 8px;
+        align-self: stretch;
+        border-radius: 8px;
+        background: var(--system-smoky-dark);
+        width: fit-content;
+    }
+
+    .order__write-off {
+        margin-top: 12px;
+        display: flex;
+        padding: 8px 8px 12px 8px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        border-radius: 8px;
+        background: var(--system-smoky-dark);
+        margin-bottom: 24px;
+        width: fit-content;
+    }
+
+    .order__button {
+        width: 288px;
+    }
+}
+
+
+@media (max-width: 660px) {
     .order__delivery {
         margin: 16px 0;
+    }
+
+    .order__write-off {
+        width: 288px;
+    }
+
+    .order h3,
+    .order__card,
+    .order .address,
+    .order__delivery-date {
+        display: none;
+    }
+
+    .order h2 {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+        letter-spacing: -0.2px;
+    }
+
+    .order {
+        width: 100%;
+        padding: 8px 8px 40px 16px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .order__header {
+        width: 288px;
+    }
+
+    .order li {
+        width: 288px;
+        margin-right: 0 !important;
+    }
+
+    .order h2 span {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140% ;
+        letter-spacing: -0.2px;
+    }
+    .order__delivery-block {
+        width: 288px;
+        gap: 0px;
+        padding-top: 9px;
+        padding-bottom: 11px;
+    }
+}
+
+
+@media  (max-width: 660px) and (min-width: 325px) {
+    .order__write-off,
+    .order__header,
+    .order li,
+    .order__button,
+    .order__delivery-block {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
     }
 }

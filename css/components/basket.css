@@ -10,7 +10,7 @@
     font-weight: 700;
     line-height: 36px;
     letter-spacing: -0.28px;
-    margin-top: 18.5px; 
+    margin-top: 18.5px;
     margin-bottom: 27px;
 }
 
@@ -18,6 +18,7 @@
 .basket__details_list_missing {
     padding-top: 14px;
 }
+
 .basket__details_list_missing[open] {
     padding-top: 35px;
 }
@@ -82,8 +83,6 @@
     flex-direction: column;
     gap: 18px;
     width: 100%;
-    /* margin-bottom: 36px; */
-    /* margin-top: 1px; */
 }
 
 
@@ -111,14 +110,6 @@
     margin-top: 2px;
 }
 
-/* .basket__details_list_main {
-    margin-bottom: 13px;
-}
-
-.basket__details_list_main[open] {
-    margin-bottom: 36px;
-}
- */
 
 .basket__details_list_missing h2 {
     border-bottom: none;
@@ -140,20 +131,68 @@
     margin-top: -2px;
 }
 
-/* .goods__select-all */
-
 details summary {
     cursor: pointer;
 }
+
 details summary::-webkit-details-marker,
 details summary::marker {
- display: none; 
- content: "";
+    display: none;
+    content: "";
 }
 
 .basket__summary-img {
     transition: all .2s ease 0s;
 }
+
 details:not([open]) .basket__summary-img {
     transform: rotate(0.5turn);
+}
+
+
+@media (max-width: 1000px) {
+    .basket {
+        padding: 15px 0 16px 0;
+    }
+}
+
+@media (max-width: 660px) {
+    .basket h1 {
+        padding-right: 16px;
+        padding-left: 16px;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+        letter-spacing: -0.2px;
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
+
+    .goods {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+    .basket__summary-img {
+        margin-right: 4px;
+    }
+    .basket__details_list_main[open] .goods__select-all {
+        border-bottom: unset;
+    }
+    .basket__details_list_missing[open] h2 {
+        border-bottom: unset;
+    }    
+
+    .basket__details_list_missing[open] {
+        padding-top: 46px;
+    }
+
+    .goods__list,
+    .goods__missing {
+        gap: 16px;
+    }
+
+    .basket {
+        padding-bottom: 13px;
+    }
 }
