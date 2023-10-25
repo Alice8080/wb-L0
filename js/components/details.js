@@ -24,13 +24,13 @@ export function manageDetails(details = getDetails()) {
     deliveryType.textContent = details.addressType === 'point' ? 'Пункт выдачи' : 'Доставка курьером';
     const paymentCard = document.getElementById('payment-card');
     paymentCard.innerHTML = `
-    <img src="/assets/images/${details.card.img}">
+    <img src="./assets/images/${details.card.img}">
     <p>${details.card.number}</p>
     <span>01/30</span>`;
 
     const orderCard = document.getElementById('order-card');
     orderCard.innerHTML = `
-    <img src="/assets/images/${details.card.img}">
+    <img src="./assets/images/${details.card.img}">
     <p>${details.card.number}</p>`;
     updateDetails(details);
 }

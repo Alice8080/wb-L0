@@ -42,7 +42,7 @@ export function renderDelivery() {
 
             const max = dates['5-6'][product.id].maxCount;
             node.innerHTML = `
-            <img src="/assets/images/${product.smallImg}">
+            <img src="./assets/images/${product.smallImg}">
             <p>${product.count > 1 ? `<span>${product.count}</span>` : ''}</p>`;
             if (product.count <= max) {
                 firstList.appendChild(node);
@@ -51,12 +51,12 @@ export function renderDelivery() {
                 }
             } else {
                 node.innerHTML = `
-                <img src="/assets/images/${product.smallImg}">
+                <img src="./assets/images/${product.smallImg}">
                 <p>${product.count > 1 ? `<span>${max}</span>` : ''}</p>`;
                 firstList.appendChild(node);
 
                 secondNode.innerHTML = `
-                <img src="/assets/images/${product.smallImg}">
+                <img src="./assets/images/${product.smallImg}">
                 <p>${product.count > 1 ? `<span>${product.count - max}</span>` : ''}</p>`;
                 secondList.appendChild(secondNode);
             }

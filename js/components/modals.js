@@ -39,7 +39,7 @@ export function manageModals() {
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13 5.5H7V3.46875C7 2.65758 7.65758 2 8.46875 2H11.5312C12.3424 2 13 2.65758 13 3.46875V5.5ZM8.46875 3C8.20987 3 8 3.20987 8 3.46875V4.5H12V3.46875C12 3.20987 11.7901 3 11.5312 3H8.46875Z" fill="#9797AF"/>
                 </svg> 
                 <div class="radio__block-info">
-                    <img src="/assets/images/star.png">
+                    <img src="./assets/images/star.png">
                     <p>Пункт выдачи</p>
                 </div>         
             </div>
@@ -58,7 +58,7 @@ export function manageModals() {
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13 5.5H7V3.46875C7 2.65758 7.65758 2 8.46875 2H11.5312C12.3424 2 13 2.65758 13 3.46875V5.5ZM8.46875 3C8.20987 3 8 3.20987 8 3.46875V4.5H12V3.46875C12 3.20987 11.7901 3 11.5312 3H8.46875Z" fill="#9797AF"/>
                 </svg> 
                 <div class="radio__block-info">
-                    <img src="/assets/images/star.png">
+                    <img src="./assets/images/star.png">
                     <p>4.99</p>
                     <p>Пункт выдачи</p>
                 </div>         
@@ -78,7 +78,7 @@ export function manageModals() {
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13 5.5H7V3.46875C7 2.65758 7.65758 2 8.46875 2H11.5312C12.3424 2 13 2.65758 13 3.46875V5.5ZM8.46875 3C8.20987 3 8 3.20987 8 3.46875V4.5H12V3.46875C12 3.20987 11.7901 3 11.5312 3H8.46875Z" fill="#9797AF"/>
                 </svg> 
                 <div class="radio__block-info">
-                    <img src="/assets/images/star.png">
+                    <img src="./assets/images/star.png">
                     <p>4.99</p>
                     <p>Пункт выдачи</p>
                 </div>         
@@ -99,7 +99,7 @@ export function manageModals() {
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13 5.5H7V3.46875C7 2.65758 7.65758 2 8.46875 2H11.5312C12.3424 2 13 2.65758 13 3.46875V5.5ZM8.46875 3C8.20987 3 8 3.20987 8 3.46875V4.5H12V3.46875C12 3.20987 11.7901 3 11.5312 3H8.46875Z" fill="#9797AF"/>
                 </svg> 
                 <div class="radio__block-info">
-                    <img src="/assets/images/star.png">
+                    <img src="./assets/images/star.png">
                     <p>4.99</p>
                     <p>Пункт выдачи</p>
                 </div>         
@@ -114,7 +114,7 @@ export function manageModals() {
                 <p class="modal__header">
                     Способ доставки
                     <span class="modal__close">
-                        <img src="/assets/images/close.svg" alt="Закрыть">
+                        <img src="./assets/images/close.svg" alt="Закрыть">
                     </span>
                 </p>
                 <div class="radio__btns">
@@ -143,30 +143,30 @@ export function manageModals() {
         <p class="modal__header">
             Способ оплаты
             <span class="modal__close">
-                <img src="/assets/images/close.svg" alt="Закрыть">
+                <img src="./assets/images/close.svg" alt="Закрыть">
             </span>
         </p>
         <fieldset>
             <label class="radio">
-                <img src="/assets/images/card-mir.svg">
+                <img src="./assets/images/card-mir.svg">
                 1234 56•• •••• 1234
                 <input type="radio" name="radio-card" value="mir" checked>
                 <span class="radio__checkmark"></span>
             </label>
             <label class="radio">
-                <img src="/assets/images/card-visa.svg">
+                <img src="./assets/images/card-visa.svg">
                 1234 56•• •••• 1234
                 <input type="radio" name="radio-card" value="visa">
                 <span class="radio__checkmark"></span>
             </label>
             <label class="radio">
-                <img src="/assets/images/card-mastercard.svg">
+                <img src="./assets/images/card-mastercard.svg">
                 1234 56•• •••• 1234
                 <input type="radio" name="radio-card" value="mastercard">
                 <span class="radio__checkmark"></span>
             </label>
             <label class="radio">
-                <img src="/assets/images/card-maestro.svg">
+                <img src="./assets/images/card-maestro.svg">
                 1234 56•• •••• 1234
                 <input type="radio" name="radio-card" value="maestro">
                 <span class="radio__checkmark"></span>
