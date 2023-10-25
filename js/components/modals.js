@@ -3,10 +3,26 @@ import { update } from "../utils/utils.js";
 import { ADDRESSES, CARDS } from "../utils/constants.js";
 
 export function manageModals() {
-    function modal(id, btns, content) {
+    function modal(id, btns, content, type) {
         const modal = document.getElementById(id);
         btns.forEach(btn => {
-            modal.innerHTML = content;
+            const innerContent = `
+            <div class="modal__content modal__${type === "cards" ? 'payment' : 'delivery'}">
+                <section class="modal__section">
+                    <p class="modal__header">
+                        Способ ${type === "cards" ? 'оплаты' : 'доставки'}
+                        <span class="modal__close">
+                            <img src="./assets/images/close.svg" alt="Закрыть">
+                        </span>
+                    </p>
+                    ${content}
+                </section>
+                <button class="modal__button-select modal__button-select_type_${type}">
+                    Выбрать
+                </button>
+            </div>`;
+
+            modal.innerHTML = innerContent;
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const close = modal.querySelector(".modal__close");
@@ -89,7 +105,7 @@ export function manageModals() {
     </label>` : '';
     courierContent = [address1, address2, address3].join('');
     const pointContent = details.addresses.deliveryPoint ? `
-    <label class="radio" id="deliveryPoint">
+    <label label class="radio" id="deliveryPoint">
         <span class="radio__block">
             <div class="radio__main-block">
                 <span>Бишкек, улица Ахматбека Суюмбаева, 12/1</span>
@@ -109,14 +125,6 @@ export function manageModals() {
         <span class="radio__checkmark"></span>
     </label> ` : '';
     const deliveryContent = `
-        <div class="modal__content modal__delivery">
-            <section class="modal__section">
-                <p class="modal__header">
-                    Способ доставки
-                    <span class="modal__close">
-                        <img src="./assets/images/close.svg" alt="Закрыть">
-                    </span>
-                </p>
                 <div class="radio__btns">
                     <label class="radio__btn">
                         В пункт выдачи
@@ -130,55 +138,37 @@ export function manageModals() {
                 <p class="modal__subheader">Мои адреса</p>
                 <fieldset class="modal__delivery-fieldset">
                     ${courierContent}
-                </fieldset>            
-            </section>
-            <button class="modal__button-select modal__button-select_type_delivery">
-                Выбрать
-            </button>
-        </div>`;
+                </fieldset>`;
     const paymentBtns = document.querySelectorAll('.modal__button_type_payment');
     const paymentContent = `
-    <div class="modal__content modal__payment">
-    <section class="modal__section">
-        <p class="modal__header">
-            Способ оплаты
-            <span class="modal__close">
-                <img src="./assets/images/close.svg" alt="Закрыть">
-            </span>
-        </p>
-        <fieldset>
-            <label class="radio">
-                <img src="./assets/images/card-mir.svg">
-                1234 56•• •••• 1234
-                <input type="radio" name="radio-card" value="mir" checked>
-                <span class="radio__checkmark"></span>
-            </label>
-            <label class="radio">
-                <img src="./assets/images/card-visa.svg">
-                1234 56•• •••• 1234
-                <input type="radio" name="radio-card" value="visa">
-                <span class="radio__checkmark"></span>
-            </label>
-            <label class="radio">
-                <img src="./assets/images/card-mastercard.svg">
-                1234 56•• •••• 1234
-                <input type="radio" name="radio-card" value="mastercard">
-                <span class="radio__checkmark"></span>
-            </label>
-            <label class="radio">
-                <img src="./assets/images/card-maestro.svg">
-                1234 56•• •••• 1234
-                <input type="radio" name="radio-card" value="maestro">
-                <span class="radio__checkmark"></span>
-            </label>
-        </fieldset>
-        </section>
-        <button class="modal__button-select modal__button-select_type_cards">
-            Выбрать
-        </button>
-    </div>`;
-    modal('delivery-modal', deliveryBtns, deliveryContent);
-    modal('payment-modal', paymentBtns, paymentContent);
+    <fieldset>
+        <label class="radio">
+            <img src="./assets/images/card-mir.svg">
+            1234 56•• •••• 1234
+            <input type="radio" name="radio-card" value="mir" checked>
+            <span class="radio__checkmark"></span>
+        </label>
+        <label class="radio">
+            <img src="./assets/images/card-visa.svg">
+            1234 56•• •••• 1234
+            <input type="radio" name="radio-card" value="visa">
+            <span class="radio__checkmark"></span>
+        </label>
+        <label class="radio">
+            <img src="./assets/images/card-mastercard.svg">
+            1234 56•• •••• 1234
+            <input type="radio" name="radio-card" value="mastercard">
+            <span class="radio__checkmark"></span>
+        </label>
+        <label class="radio">
+            <img src="./assets/images/card-maestro.svg">
+            1234 56•• •••• 1234
+            <input type="radio" name="radio-card" value="maestro">
+            <span class="radio__checkmark"></span>
+        </label>
+    </fieldset>`;
+    modal('delivery-modal', deliveryBtns, deliveryContent, 'delivery');
+    modal('payment-modal', paymentBtns, paymentContent, 'cards');
 
     const point = document.getElementById('address-point');
     const courier = document.getElementById('address-courier');
@@ -190,9 +180,7 @@ export function manageModals() {
             btn.addEventListener('click', () => {
                 const id = btn.parentNode.parentNode.parentNode.id;
                 const details = getDetails();
-                console.log(details)
                 delete details.addresses[id];
-                console.log(details)
 
                 updateDetails(details);
                 update();
@@ -228,11 +216,9 @@ export function manageModals() {
         const addressTypes = document.querySelectorAll('[name="address"]');
         const checked = Array.from(deliveryTypes).find(item => item.checked);
         const checkedAddress = Array.from(addressTypes).find(item => item.checked);
-        console.log(checkedAddress.value)
         const details = getDetails();
         details.addressType = checked.value;
         details.address = ADDRESSES[checkedAddress.value];
-        console.log(details)
         manageDetails(details);
     });
     const btnCards = document.querySelector('.modal__button-select_type_cards');
