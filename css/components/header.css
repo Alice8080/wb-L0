@@ -44,7 +44,7 @@
     display: inline-block;
     height: 48px;
     width: 48px;
-    background-image: url(/assets/images/menu-btn.svg);
+    background-image: url(../../assets/images/menu-btn.svg);
 }
 
 .nav__menu-icons {
@@ -165,7 +165,7 @@
         display: inline-block;
         width: 28px;
         height: 28px;
-        background-image: url(/assets/images/menu-btn-sm.svg);
+        background-image: url(../../assets/images/menu-btn-sm.svg);
         margin-right: 20px;
     }
 
