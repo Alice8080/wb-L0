@@ -23,22 +23,27 @@ export function manageModals() {
             </div>`;
 
             modal.innerHTML = innerContent;
+            const close = modal.querySelector(".modal__close");
+            const closeBtn = modal.querySelector(".modal__button-select");
+            const hideModal = () => {
+                console.log('close')
+                modal.style.display = "none";
+            };
+            close.addEventListener('click', () => {
+                hideModal();
+            });
+            closeBtn.addEventListener('click', () => {
+                hideModal();
+            });
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                const close = modal.querySelector(".modal__close");
-                const closeBtn = modal.querySelector(".modal__button-select");
                 modal.style.display = "block";
-                const hideModal = () => {
-                    modal.style.display = "none";
-                };
-                close.onclick = hideModal;
-                closeBtn.onclick = hideModal;
                 window.onclick = function (event) {
                     if (event.target == modal) {
                         hideModal();
                     }
                 }
-            });
+                });
         });
     }
     const deliveryBtns = document.querySelectorAll('.modal__button_type_delivery');
@@ -128,11 +133,11 @@ export function manageModals() {
                 <div class="radio__btns">
                     <label class="radio__btn">
                         В пункт выдачи
-                        <input id="address-point" type="radio" name="delivery-type" value="point" checked>
+                        <input id="address-point" type="radio" name="delivery-type" value="point" ${details.modalAddressType === 'point' ? 'checked' : ''}>
                     </label>
                     <label class="radio__btn">
                         Курьером
-                        <input id="address-courier" type="radio" name="delivery-type" value="courier">
+                        <input id="address-courier" type="radio" name="delivery-type" value="courier" ${details.modalAddressType === 'courier' ? 'checked' : ''}>
                     </label>
                 </div>
                 <p class="modal__subheader">Мои адреса</p>
@@ -180,8 +185,8 @@ export function manageModals() {
             btn.addEventListener('click', () => {
                 const id = btn.parentNode.parentNode.parentNode.id;
                 const details = getDetails();
+                // const deliveryActiveCheckbox = document.querySelectorAll('')
                 delete details.addresses[id];
-
                 updateDetails(details);
                 update();
             });
@@ -191,25 +196,33 @@ export function manageModals() {
         fieldset.innerHTML = courierContent;
     } else {
         fieldset.innerHTML = pointContent;
+
     }
     delAddress();
     courier.addEventListener('change', (e) => {
+        const details = getDetails();
         if (courier.checked) {
             fieldset.innerHTML = courierContent;
+            details.modalAddressType = 'courier';
         } else {
             fieldset.innerHTML = pointContent;
+            details.modalAddressType = 'point';
         }
         delAddress();
+        updateDetails(details);
     });
     point.addEventListener('change', (e) => {
+        const details = getDetails();
         if (point.checked) {
             fieldset.innerHTML = pointContent;
+            details.modalAddressType = 'point';
         } else {
             fieldset.innerHTML = courierContent;
+            details.modalAddressType = 'courier';
         }
         delAddress();
+        updateDetails(details);
     });
-
     const btnTypeDelivery = document.querySelector('.modal__button-select_type_delivery');
     btnTypeDelivery.addEventListener('click', (e) => {
         const deliveryTypes = document.querySelectorAll('[name="delivery-type"]');
@@ -217,8 +230,13 @@ export function manageModals() {
         const checked = Array.from(deliveryTypes).find(item => item.checked);
         const checkedAddress = Array.from(addressTypes).find(item => item.checked);
         const details = getDetails();
-        details.addressType = checked.value;
-        details.address = ADDRESSES[checkedAddress.value];
+        if (!checkedAddress) {
+            details.addressType = 'point';
+            details.address = ADDRESSES['deliveryPoint'];
+        } else {
+            details.addressType = checked.value;
+            details.address = ADDRESSES[checkedAddress.value];
+        }
         manageDetails(details);
     });
     const btnCards = document.querySelector('.modal__button-select_type_cards');

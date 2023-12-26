@@ -57,7 +57,7 @@ export function renderDelivery() {
 
                 secondNode.innerHTML = `
                 <img src="./assets/images/${product.smallImg}">
-                <p>${product.count > 1 ? `<span>${product.count - max}</span>` : ''}</p>`;
+                <p>${product.count - max > 1 ? `<span>${product.count - max}</span>` : ''}</p>`;
                 secondList.appendChild(secondNode);
             }
         } else {

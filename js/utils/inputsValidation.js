@@ -42,9 +42,7 @@ function showEmptyError(field, elementError, input, errorText) {
             elementError.textContent = '';
         }
     }
-    if (window.screen.width <= 768) {
-        input.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-    }
+    input.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 };
 
 function showError(field, elementError, item, input, errorText, emptyErrorText) {

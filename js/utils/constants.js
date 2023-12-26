@@ -200,7 +200,8 @@ export const DETAILS = {
     addressType: 'point',
     address: ADDRESSES.deliveryPoint,
     card: CARDS.mir,
-    addresses: ADDRESSES
+    addresses: ADDRESSES,
+    modalAddressType: 'point'
 };
 
 export const INPUTS = {
